@@ -2,7 +2,7 @@
 
 As [Vladimir Kharlampidi](https://github.com/nolimits4web), creator of [Framewok7](http://framework7.io), decided to go foward with [vue.js](http://vuejs.org), I would like to try to change my development process to vue.js and web components.
 
-After some reads over the net on Vue.js, I choose to start this librairy using tools provide with it. So I setup my environment using [vue-cli](https://github.com/vuejs/vue-cli)
+After some reads over the net on Vue.js, I choose to start this library using tools provide with it. So I setup my environment using [vue-cli](https://github.com/vuejs/vue-cli)
 
 Just:
 
