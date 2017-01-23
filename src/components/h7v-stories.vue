@@ -1,6 +1,8 @@
 <template lang="pug">
 f7-list
-  h7v-storie(v-for='storie in stories', :storie='storie')
+  // add <ul> : hack to make list render normally
+  ul
+    h7v-storie(v-for='storie in stories', :storie='storie')
 </template>
 
 <script>
