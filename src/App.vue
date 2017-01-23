@@ -12,12 +12,18 @@
         f7-page(navbar-through)
           // Navbar
           f7-navbar(title='HackerNews7V')
-          p Page content goes there
+          h7v-stories
 </template>
 
 <script>
+// import stories
+import Stories from './components/h7v-stories'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'h7v-stories': Stories
+  }
 }
 </script>
 
