@@ -1,3 +1,8 @@
+# Defining the main layout
+
+I will use the App component as the main component for the app. So I set the layout in it.
+
+```javascript
 <template lang="pug">
 #app
   // Status bar overlay for full screen mode
@@ -23,3 +28,4 @@ export default {
 
 <style src='framework7/dist/css/framework7.ios.css'></style>
 <style src='framework7/dist/css/framework7.ios.colors.css'></style>
+```
