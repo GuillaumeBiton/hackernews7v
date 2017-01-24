@@ -1,22 +1,21 @@
 <template lang='pug'>
 f7-list(media-list)
-  // add <ul> : hack to make list render normally
-  ul
-    h7v-storie(v-for='storie in stories', :storie='storie')
+  f7-list-item(v-for='storie in stories', link="/storie/", @click='selectStorie(storie)')
+    .item-title-row
+      .item-title {{storie.title}}
+      .item-after
+        .badge {{storie.kids.length}}
+    .item-subtitle {{storie.domain}}
+    .item-text {{storie.score}} points by {{storie.by}}
 </template>
 
 <script>
-// import storie vue component
-import Storie from './h7v-storie'
-
 export default {
   name: 'h7v-stories',
-  components: {
-    'h7v-storie': Storie
-  },
   data () {
     return {
-      stories: []
+      stories: [],
+      storie: null
     }
   },
   methods: {
@@ -46,6 +45,9 @@ export default {
           })
         }
       })
+    },
+    selectStorie (storie) {
+      this.$root.storie = storie
     }
   },
   created () {

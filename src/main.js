@@ -11,6 +11,7 @@ Vue.use(Framework7Vue)
 
 // Importing main Component
 import App from './App'
+import Storie from './components/h7v-storie'
 
 /* eslint-disable no-new */
 new Vue({
@@ -18,6 +19,12 @@ new Vue({
   template: '<App/>',
   components: { App },
   framework7: {
-    root: '#app'
+    root: '#app',
+    routes: [
+      {
+        path: '/storie/',
+        component: Storie
+      }
+    ]
   }
 })
