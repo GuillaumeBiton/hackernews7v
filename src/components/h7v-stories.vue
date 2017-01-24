@@ -1,5 +1,5 @@
-<template lang="pug">
-f7-list
+<template lang='pug'>
+f7-list(media-list)
   // add <ul> : hack to make list render normally
   ul
     h7v-storie(v-for='storie in stories', :storie='storie')
@@ -22,10 +22,28 @@ export default {
   methods: {
     fetchData () {
       var self = this
+      var results = []
       window.Dom7.ajax({
         url: 'https://hacker-news.firebaseio.com/v0/topstories.json',
         success (data) {
-          self.stories = JSON.parse(data)
+          data = JSON.parse(data)
+          var limit = 10
+          data.splice(limit, data.length - limit)
+          data.forEach((id, index) => {
+            window.Dom7.ajax({
+              url: 'https://hacker-news.firebaseio.com/v0/item/' + id + '.json',
+              success (data) {
+                data = JSON.parse(data)
+                if (data) {
+                  data.domain = data.url ? data.url.split('/')[2] : ''
+                }
+                results[index] = data
+                if (results.length === limit) {
+                  self.stories = results
+                }
+              }
+            })
+          })
         }
       })
     }
