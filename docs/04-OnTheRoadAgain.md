@@ -2,7 +2,7 @@
 
 Now I want to be able select a story to see details about it and comments leave by hackernews users.
 
-# Story page
+## Story page
 
 I create a story-page as a vue file.
 
@@ -30,7 +30,7 @@ export default {
 <style>[...]</style>
 ```
 
-# routing
+## routing
 
 Now I include my vue component into my main.js and ask Framework7 to handle request to '/story/' with this component.
 
@@ -53,7 +53,6 @@ new Vue({
     ]
   }
 })
-
 ```
 
 now navigation is up.
