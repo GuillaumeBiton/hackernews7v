@@ -74,3 +74,9 @@ export default {
 ```
 
 And that's it. My project is initialized.
+
+---
+
+TODO
+
+find a webpack way to set viewport.
