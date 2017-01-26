@@ -45,5 +45,8 @@ export default {
       transform: translate3d(260px, 0, 0);
       width: calc(100% - 260px)
     }
+    .view-main .navbar .left .open-panel {
+      display: none
+    }
   }
 </style>
