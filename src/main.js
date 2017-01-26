@@ -20,6 +20,7 @@ new Vue({
   components: { App },
   framework7: {
     root: '#app',
+    animateNavBackIcon: true,
     routes: [
       {
         path: '/story/',

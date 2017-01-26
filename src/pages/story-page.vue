@@ -1,6 +1,6 @@
 <template lang='pug'>
 f7-page(name='story', navbar-through)
-  f7-navbar(back-link="Back", :title='story.title')
+  f7-navbar(back-link="Back", :title='story.title', sliding)
   .story-header
     .story-title {{story.title}}
     .story-info {{story.score}} points by {{story.by}}

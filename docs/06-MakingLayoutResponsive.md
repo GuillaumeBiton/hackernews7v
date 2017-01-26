@@ -1,9 +1,19 @@
+# Making layout responsive
+
+the most interesting thing in hackernews7 is his responsive layout. I will try to make it work in this project.
+
+# Modifying main Layout
+
+I need a left panel. so in App.vue :
+
+```javascript
+[...]
 <template lang="pug">
 #app
   // Status bar overlay for full screen mode
   f7-statusbar
   // left panel
-  f7-panel(left, cover)
+  f7-panel(left, reveal)
   //Views
   f7-views(navbar-through)
     // Main view
@@ -19,23 +29,30 @@
         f7-page
           h7v-stories
 </template>
+[...]
+```
 
-<script>
-// import stories
-import Stories from './components/h7v-stories'
+now we need some styles into App.vue to enable it:
 
-export default {
-  name: 'app',
-  components: {
-    'h7v-stories': Stories
-  }
-}
-</script>
-
-<style src='framework7/dist/css/framework7.ios.css'></style>
-<style src='framework7/dist/css/framework7.ios.colors.css'></style>
+```javascript
+[...]
 <style>
-  .views {
+  @media (min-width: 768px) {
+    .views {
+      transform: translate3d(260px, 0, 0);
+      width: calc(100% - 260px)
+    }
+  }
+</style>
+[...]
+```
+
+and to make it smooth, we can add transitions:
+
+```javascript
+[...]
+<style>
+ .views {
     transition: 400ms;
     transform: translate3d(0, 0, 0);
   }
@@ -47,3 +64,5 @@ export default {
     }
   }
 </style>
+[...]
+```
