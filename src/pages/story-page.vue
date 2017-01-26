@@ -1,14 +1,14 @@
 <template lang='pug'>
-f7-page(name='storie', navbar-through)
-  f7-navbar(back-link="Back", :title='storie.title')
+f7-page(name='story', navbar-through)
+  f7-navbar(back-link="Back", :title='story.title')
   .story-header
-    .story-title {{storie.title}}
-    .story-info {{storie.score}} points by {{storie.by}}
+    .story-title {{story.title}}
+    .story-info {{story.score}} points by {{story.by}}
     .story-link 
-      f7-link(:href='storie.url', external) {{storie.url}}
+      f7-link(:href='story.url', external) {{story.url}}
   .story-comments
     .messages
-      .message.message-received.message-with-tail.message-last(v-for='comment in storieComments')
+      .message.message-received.message-with-tail.message-last(v-for='comment in storyComments')
         .message-name
           span.comment-name {{comment.by}}
         .message-text {{comment.text}}
@@ -18,8 +18,8 @@ f7-page(name='storie', navbar-through)
 export default {
   data () {
     return {
-      storie: this.$root.storie,
-      storieComments: []
+      story: this.$root.story,
+      storyComments: []
     }
   },
   methods: {
@@ -27,8 +27,8 @@ export default {
       var self = this
       var comments = []
       var commentsCount = 0
-      if (self.storie.kids) {
-        self.storie.kids.forEach((child, index) => {
+      if (self.story.kids) {
+        self.story.kids.forEach((child, index) => {
           this.$$.ajax({
             url: 'https://hacker-news.firebaseio.com/v0/item/' + child + '.json',
             success (data) {
@@ -39,11 +39,11 @@ export default {
                 }
               }
               commentsCount += 1
-              if (commentsCount === self.storie.kids.length) {
+              if (commentsCount === self.story.kids.length) {
                 comments = comments.filter(function (n) {
                   return n !== undefined
                 })
-                self.storieComments = comments
+                self.storyComments = comments
               }
             },
             error () {

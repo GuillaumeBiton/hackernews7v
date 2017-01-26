@@ -11,7 +11,7 @@ Vue.use(Framework7Vue)
 
 // Importing main Component
 import App from './App'
-import Storie from './components/h7v-storie'
+import StoryPage from './pages/story-page'
 
 /* eslint-disable no-new */
 new Vue({
@@ -22,8 +22,8 @@ new Vue({
     root: '#app',
     routes: [
       {
-        path: '/storie/',
-        component: Storie
+        path: '/story/',
+        component: StoryPage
       }
     ]
   }
